@@ -200,92 +200,92 @@
       <script src="styles.css"></script>
 
 <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
-
-    // Tu configuración de Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
-        authDomain: "dreamstyle-56d32.firebaseapp.com",
-        databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
-        projectId: "dreamstyle-56d32",
-        storageBucket: "dreamstyle-56d32.firebasestorage.app",
-        messagingSenderId: "188421473202",
-        appId: "1:188421473202:web:424beeea5a4b6d507b5aab"
-    };
-
-    // Inicializar Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const checkoutForm = document.getElementById('checkoutPurchaseForm');
-        const cart = [];
-
-        checkoutForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            saveCheckoutData();
-        });
-
-        function saveCheckoutData() {
-            const nombreCompra = document.getElementById('checkoutNombre').value;
-            const correoCompra = document.getElementById('checkoutCorreo').value;
-            const direccion = document.getElementById('checkoutDireccion').value;
-
-            // Guarda los datos en la base de datos
-            const newCheckoutRef = ref(database, 'Compras/' + Date.now());
-            set(newCheckoutRef, {
-                nombreCompra: nombreCompra,
-                correoCompra: correoCompra,
-                direccion: direccion,
-            }).then(() => {
-                alert('Compra realizada con éxito. ¡Gracias por su compra!');
-                cart.length = 0; // Vaciar el carrito
-                updateCart();
-                checkoutForm.reset();
-                document.getElementById('checkout-container').style.display = 'none'; // Ocultar formulario
-                const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
-                cartModal.hide(); // Cerrar el modal
-            }).catch((error) => {
-                console.error("Error al enviar el formulario: ", error);
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+    
+        // Tu configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
+            authDomain: "dreamstyle-56d32.firebaseapp.com",
+            databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
+            projectId: "dreamstyle-56d32",
+            storageBucket: "dreamstyle-56d32.firebasestorage.app",
+            messagingSenderId: "188421473202",
+            appId: "1:188421473202:web:424beeea5a4b6d507b5aab"
+        };
+    
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutForm = document.getElementById('checkoutPurchaseForm');
+            const cart = [];
+    
+            checkoutForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                saveCheckoutData();
             });
-        }
-
-        window.addToCart = function(product, price) {
-            cart.push({ product, price });
-            updateCart();
-            alert(`${product} ha sido añadido al carrito.`); // Mensaje de confirmación
-        }
-
-        function updateCart() {
-            const cartList = document.getElementById('cart');
-            const cartCount = document.getElementById('cart-count');
-            cartList.innerHTML = '';
-            cart.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.className = 'list-group-item';
-                listItem.textContent = `${item.product} - $${item.price}`;
-                cartList.appendChild(listItem);
-            });
-            cartCount.textContent = cart.length; // Actualiza el contador
-        }
-
-        window.openCartModal = function() {
-            if (cart.length === 0) {
-                alert("El carrito está vacío.");
-            } else {
-                const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
-                cartModal.show(); // Muestra el modal
+    
+            function saveCheckoutData() {
+                const Nombre_Completo = document.getElementById('checkoutNombre').value;
+                const Telefono = document.getElementById('checkoutTelefono').value;
+                const Dirección_de_Envío = document.getElementById('checkoutDireccion').value;
+    
+                // Guarda los datos en la base de datos
+                const newCheckoutRef = ref(database, 'Compras/' + Date.now());
+                set(newCheckoutRef, {
+                    Nombre_Completo: Nombre_Completo,
+                    Telefono: Telefono,
+                    Dirección_de_Envío: Dirección_de_Envío,
+                }).then(() => {
+                    alert('Compra realizada con éxito. ¡Gracias por su compra!');
+                    cart.length = 0; // Vaciar el carrito
+                    updateCart();
+                    checkoutForm.reset();
+                    document.getElementById('checkout-container').style.display = 'none'; // Ocultar formulario
+                    const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+                    cartModal.hide(); // Cerrar el modal
+                }).catch((error) => {
+                    console.error("Error al enviar el formulario: ", error);
+                });
             }
-        }
-
-        window.showCheckout = function() {
-            document.getElementById('checkout-container').style.display = 'block'; // Mostrar formulario
-        }
-    });
-</script>
+    
+            window.addToCart = function(product, price) {
+                cart.push({ product, price });
+                updateCart();
+                alert(`${product} ha sido añadido al carrito.`); // Mensaje de confirmación
+            }
+    
+            function updateCart() {
+                const cartList = document.getElementById('cart');
+                const cartCount = document.getElementById('cart-count');
+                cartList.innerHTML = '';
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.textContent = `${item.product} - $${item.price}`;
+                    cartList.appendChild(listItem);
+                });
+                cartCount.textContent = cart.length; // Actualiza el contador
+            }
+    
+            window.openCartModal = function() {
+                if (cart.length === 0) {
+                    alert("El carrito está vacío.");
+                } else {
+                    const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+                    cartModal.show(); // Muestra el modal
+                }
+            }
+    
+            window.showCheckout = function() {
+                document.getElementById('checkout-container').style.display = 'block'; // Mostrar formulario
+            }
+        });
+    </script>
     </body>
     </html>

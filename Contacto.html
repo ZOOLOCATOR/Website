@@ -43,7 +43,7 @@
         <nav class="navbar">
             <div class="logo">Dream Style</div>
             <ul class="nav-links">
-                <li><a href="Index.html" target="_blank">Inicio</a></li>
+                <li><a href="index.html" target="_blank">Inicio</a></li>
                 <li><a href="Hombres.html" target="_blank">Hombres</a></li>
                 <li><a href="Mujeres.html" target="_blank">Mujeres</a></li>
                 <li><a href="Niños.html" target="_blank">Niños</a></li>
@@ -93,56 +93,5 @@
         </div>
     </footer>
 </section>
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
-      authDomain: "dreamstyle-56d32.firebaseapp.com",
-      databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
-      projectId: "dreamstyle-56d32",
-      storageBucket: "dreamstyle-56d32.firebasestorage.app",
-      messagingSenderId: "188421473202",
-      appId: "1:188421473202:web:424beeea5a4b6d507b5aab"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function (event) {
-            
-            
-
-            // Resto del código de envío
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const contraseña = document.getElementById('contraseña').value;
-            const confirma_contraseña = document.getElementById('confirma_contraseña').value;
-
-            // Guarda los datos en la base de datos
-            const newContactRef = ref(database, 'Registro/' + Date.now());
-            set(newContactRef, {
-                nombre: nombre,
-                correo: correo,
-                contraseña: contraseña,
-                confirma_contraseña: confirma_contraseña
-            }).then(() => {
-                alert('Correo enviado');
-                contactForm.reset();
-            }).catch((error) => {
-                console.error("Error al enviar el correo: ", error);
-            });
-        });
-    });
-</script>
-    </body>
-    </html>
+</body>
+</html>

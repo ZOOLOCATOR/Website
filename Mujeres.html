@@ -123,6 +123,42 @@
     </div>
 </div>
 
+   <!-- Modal del carrito -->
+<div class="modal fade" id="cartModal" tabindex="1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="cart" class="list-group mb-4"></ul>
+                <div class="modal-footer">
+                    <button class="btn btn-success" onclick="showCheckout()">Proceder a la compra</button>
+                </div>
+                <div id="checkout-container" style="display:none;">
+                    <h2>Formulario de Compra</h2>
+                    <form id="checkoutPurchaseForm">
+                        <div class="mb-3">
+                            <label for="checkoutNombre" class="form-label">Nombre Completo:</label>
+                            <input type="text" class="form-control" id="checkoutNombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="checkoutTelefono" class="form-label">Telefono:</label>
+                            <input type="text" class="form-control" id="checkoutTelefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="checkoutDireccion" class="form-label">Dirección de Envío:</label>
+                            <input type="text" class="form-control" id="checkoutDireccion" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Pie de página -->
     <Section>
         <footer>
@@ -141,7 +177,9 @@
        </footer>
        
       </Section>
-     <script type="module">
+      <script src="styles.css"></script>
+
+      <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
@@ -231,5 +269,3 @@
     </script>
     </body>
     </html>
-
-   

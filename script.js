@@ -1,4 +1,4 @@
- function mostrarTextoGradualmente(elemento) {
+function mostrarTextoGradualmente(elemento) {
   var textoCompleto = elemento.textContent;
   elemento.textContent = ''; 
   var i = 0;
@@ -12,17 +12,42 @@
   }, 100); 
 }
 
-var header = document.querySelector('header');
-mostrarTextoGradualmente(header.querySelector('#texto-escrito'));
+// Agregar en tu archivo scripts.js
+function openUserLoginModal() {
+    const userLoginModal = new bootstrap.Modal(document.getElementById('userLoginModal'));
+    userLoginModal.show();
+}
 
+function closeModal(modalId) {
+    const modalElement = document.getElementById(modalId);
 
-function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    if (input.type === "password") {
-        input.type = "text";
+    if (modalElement) {
+        // Retira el foco del elemento activo
+        document.activeElement.blur();
+
+        // Obtén la instancia del modal de Bootstrap y ciérralo
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
     } else {
-        input.type = "password";
+        console.error(`No se encontró el modal con el ID: ${modalId}`);
     }
 }
+function switchModal(closeModalId, openModalId) {
+    closeModal(closeModalId); // Cerrar el modal activo
+    const openModalElement = document.getElementById(openModalId);
+
+    if (openModalElement) {
+        const openModalInstance = bootstrap.Modal.getOrCreateInstance(openModalElement);
+        openModalInstance.show(); // Abrir el nuevo modal
+    } else {
+        console.error(`No se encontró el modal con el ID: ${openModalId}`);
+    }
+}
+
+
+
+
 
 

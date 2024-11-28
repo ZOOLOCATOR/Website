@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="img/android--chrome-192x192.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=ASbCrjH7ghk7md94mZ3dWfJOymGj1a1v7MKFk22QmMOcfoZJNTtI7UKKTOQWFgUHdLptHWhdOQFBDtqJ&currency=USD"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación -->
+   
+<header>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler" type="button" id="menu-toggle">
+                    &#9776; <!-- Icono hamburguesa -->
+                </button>
+                <div class="logo ms-2">Dream Style</div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Hombres.html">Hombres</a></li>
+                <li><a href="Mujeres.html">Mujeres</a></li>
+                <li><a href="Niños.html">Niños</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            <div class="cart-icon">
+                <a href="Carrito.html">
+                    <i class="ri-shopping-cart-fill" style="font-size: 1.5rem; cursor: pointer;"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<link rel="stylesheet" href="styles.css">
+    <script>
+        // JavaScript para abrir/cerrar el menú hamburguesa
+        document.getElementById("menu-toggle").onclick = function() {
+            document.getElementById("nav-links").classList.toggle("open");
+        };
+    </script>
+
+    <div class="cart-page">
+        <h2>Carrito de Compras</h2>
+        <table class="table table-bordered" style="max-width: 90%; margin: auto; font-size: 0.8rem;">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Sub Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cart-tbody"></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right; font-weight: bold;">TOTAL</td>
+                    <td colspan="2" id="total-amount" style="text-align: center; font-size: 1.5rem; font-weight: bold;">$0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: center; padding-top: 20px;">
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#checkout-container">Proceder a la compra</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Formulario de compra en modal -->
+        <div class="modal fade" id="checkout-container" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="checkoutModalLabel">Formulario de Compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="checkoutPurchaseForm">
+                            <div class="mb-3">
+                                <label class="form-label" for="checkoutNombre">Nombre Completo:</label>
+                                <input class="form-control" id="checkoutNombre" required type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="checkoutEmail">Correo Electrónico:</label>
+                                <input class="form-control" id="checkoutEmail" required type="email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="checkoutDireccion">Dirección de Envío:</label>
+                                <input class="form-control" id="checkoutDireccion" required type="text">
+                </div>
+                <div id="paypal-button-container">
+                    <script>
+                        paypal.Buttons({
+                            createOrder: function (data, actions) {
+                                // Configura los detalles del pedido
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: '30' // Cambia esto por el precio del producto
+                                        }
+                                    }]
+                                });
+                            },
+                            onApprove: function (data, actions) {
+                                // Captura el pago
+                                return actions.order.capture().then(function (details) {
+                                    alert('Pago completado por ' + details.payer.name.given_name);
+                                    // Puedes redirigir al usuario o guardar los datos del pedido
+                                });
+                            }
+                        }).render('#paypal-button-container'); // Renderiza el botón de PayPal en el div
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p> 2024 Dream Style. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-fill"></i></a>
+            <a href="https://www.whatsapp.com/" target="_blank"><i class="ri-whatsapp-line"></i></a>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
+          authDomain: "dreamstyle-56d32.firebaseapp.com",
+          databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
+          projectId: "dreamstyle-56d32",
+          storageBucket: "dreamstyle-56d32.firebasestorage.app",
+          messagingSenderId: "188421473202",
+          appId: "1:188421473202:web:424beeea5a4b6d507b5aab",
+          measurementId: "G-D9REDB493L"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutForm = document.getElementById('checkoutPurchaseForm');
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            checkoutForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                saveCheckoutData();
+            });
+
+            function saveCheckoutData() {
+                const Nombre_Completo = document.getElementById('checkoutNombre').value;
+                const Email = document.getElementById('checkoutEmail').value;
+                const Dirección_de_Envío = document.getElementById('checkoutDireccion').value;
+
+                // Guardar datos en la base de datos
+                const newCheckoutRef = ref(database, 'Compras/' + Date.now());
+                set(newCheckoutRef, {
+                    Nombre_Completo,
+                    Email,
+                    Dirección_de_Envío,
+                    items: cartItems,
+                    total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+                }).then(() => {
+                    alert('Compra realizada con éxito. ¡Gracias por su compra!');
+                    cartItems = []; // Vaciar el carrito
+                    localStorage.removeItem('cart');
+                    renderCart();
+                    checkoutForm.reset();
+                    document.getElementById('checkout-container').style.display = 'none'; // Ocultar formulario
+                    const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+                    cartModal.hide(); // Cerrar el modal
+                }).catch((error) => {
+                    console.error("Error al enviar el formulario: ", error);
+                });
+            }
+
+            function removeExpiredItems() {
+    // Recuperar los productos del carrito desde localStorage
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const now = Date.now(); // Obtener el tiempo actual en milisegundos
+
+    // Filtrar los productos cuyo tiempo en el carrito sea menor o igual a 20 minutos
+    const updatedCart = cartItems.filter(item => now - item.addedAt <= 5 * 60 * 1000);
+
+    // Si la cantidad de productos cambia, actualizar el localStorage y el carrito
+    if (updatedCart.length !== cartItems.length) {
+        localStorage.setItem('cart', JSON.stringify(updatedCart)); // Guardar el carrito actualizado
+        renderCart(); // Actualizar la interfaz del carrito
+    }
+}
+
+// Llamar a la función `removeExpiredItems` periódicamente cada minuto
+setInterval(removeExpiredItems, 60 * 1000);
+
+
+            // Función para renderizar el carrito
+            function renderCart() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartTbody = document.getElementById('cart-tbody');
+    cartTbody.innerHTML = ''; // Limpiar el contenido del carrito antes de renderizarlo
+
+    // Calcular el número total de productos
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').textContent = totalItems > 0 ? totalItems : '';
+
+    // Calcular el total en dólares
+    let totalAmount = 0;
+
+    // Renderizar cada producto en la tabla del carrito
+    cartItems.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(0)}</td>
+            <td><input type="number" value="${item.quantity}" min="1" 
+                onchange="updateQuantity(${index}, this.value)"></td>
+            <td>$${(item.price * item.quantity).toFixed(0)}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Eliminar</button></td>
+        `;
+        cartTbody.appendChild(row);
+        totalAmount += item.price * item.quantity;
+    });
+
+    // Actualizar el total en la interfaz
+    document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(0)}`;
+}
+
+
+            // Función para actualizar la cantidad de un producto en el carrito
+            window.updateQuantity = function(index, quantity) {
+                cartItems[index].quantity = parseInt(quantity);
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCart();
+            };
+
+            // Función para eliminar un producto del carrito
+            window.removeFromCart = function(index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                renderCart();
+            };
+
+            // Función para agregar un producto al carrito
+            window.addToCart = function(name, price, image) {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cartItems.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cartItems.push({ name, price, quantity: 1, image, addedAt: Date.now() });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    renderCart();
+    alert(`${name} ha sido añadido al carrito.`);
+};
+
+
+            // Función para abrir el modal del carrito
+            window.openCartModal = function() {
+                if (cartItems.length === 0) {
+                    alert("El carrito está vacío.");
+                } else {
+                    renderCart();
+                    const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+                    cartModal.show();
+                }
+            };
+
+            // Función para mostrar el formulario de compra
+            window.showCheckout = function() {
+                document.getElementById('checkout-container').style.display = 'block'; // Mostrar formulario
+            };
+
+            // Renderizar el carrito inicial
+            renderCart();
+        });
+    </script>
+</body>
+</html>

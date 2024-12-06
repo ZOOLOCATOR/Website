@@ -5,17 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Style</title>
-    <link rel="icon" type="image/png" sizes="192x192" href="img/android--chrome-192x192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="shortcut icon" href="img/android--chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=ASbCrjH7ghk7md94mZ3dWfJOymGj1a1v7MKFk22QmMOcfoZJNTtI7UKKTOQWFgUHdLptHWhdOQFBDtqJ&currency=USD"></script>
-    
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,9 +26,47 @@
 
         gtag('config', 'G-D9REDB493L');
     </script>
+
+
+<style>
+    body {
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .light-mode {
+        background-color: white;
+        color: black;
+    }
+    .dark-mode {
+        background-color: black;
+        color: white;
+    }
+    .nav-links a {
+        text-decoration: none;
+        padding: 10px;
+        transition: color 0.3s;
+    }
+    .light-mode .nav-links a {
+        color: rgb(255, 255, 255);
+    }
+    .dark-mode .nav-links a {
+        color: lightblue;
+    }
+    .toggle-button {
+        margin: 20px;
+        padding: 0px;
+        cursor: pointer;
+        background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            
+    }
+</style>
+
 </head>
 
-<body>
+<body> 
+    
 
     <header>
         <nav class="navbar">
@@ -44,12 +78,15 @@
                     <div class="logo ms-2">Dream Style</div>
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Index.html">Inicio</a></li>
                     <li><a href="Hombres.html">Hombres</a></li>
                     <li><a href="Mujeres.html">Mujeres</a></li>
                     <li><a href="Niños.html">Niños</a></li>
                     <li><a href="Contacto.html">Contacto</a></li>
                 </ul>
+                <button class="toggle-button" id="toggleButton" title="Cambiar a Modo Oscuro">
+                    🌞
+                </button>
                 <div class="d-flex align-items-center">
                     <div class="user-icon me-3" onclick="openUserLoginModal()">
                         <i class="ri-user-fill" style="font-size: 1.5rem; color: white; cursor: pointer;"></i>
@@ -75,7 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Sección principal con imagen de fondo -->
-    <section class="header" style="background-image: url('images/Bueno.jpg');">
+    <section class="header" style="background-image: url('https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648937/diseno-moderno_mcfax5.jpg');">
         <h1>Bienvenido a Dream Style</h1>
     </section>
 
@@ -189,134 +226,170 @@
         </section>
     </div>
 
+<!-- formulario de opiniones -->
+<div id="opiniones" class="container mt-5">
+    <h2 class="mb-4">Deja tu opinión</h2>
+
+    <!-- Contenedor para el mensaje de éxito o error -->
+    <div id="mensaje" class="alert d-none"></div>
+
+    <form id="opinion-form" method="POST" class="mb-4">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="opinion" class="form-label">Tu opinión:</label>
+            <textarea class="form-control" id="opinion" name="opinion" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+
     <!-- Pie de página -->
     <footer>
-        <p>2024 Dream Style. Todos los derechos reservados.</p>
+        <p>2024 Dream Style. Todos los derechos reservados.<a href="Terminos y condiciones.html" class="terminos-link">Términos y Condiciones</a></p>
         <div class="redes">
-            <a href="https://www.facebook.com/favicon.ico" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-fill"></i></a>
             <a href="https://www.whatsapp.com/" target="_blank"><i class="ri-whatsapp-line"></i></a>
         </div>
     </footer>
     <link rel="stylesheet" href="styles.css">
 
-
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
-    import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import { getDatabase, ref, set, get, child, push } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
     
-    const firebaseConfig = {
-        apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
-        authDomain: "dreamstyle-56d32.firebaseapp.com",
-        databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
-        projectId: "dreamstyle-56d32",
-        storageBucket: "dreamstyle-56d32.firebasestorage.app",
-        messagingSenderId: "188421473202",
-        appId: "1:188421473202:web:424beeea5a4b6d507b5aab",
-        measurementId: "G-D9REDB493L"
-      };
-      
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLClY7hqBhBy-1qLTgjcnTxI3i-rvasDA",
+            authDomain: "dreamstyle-56d32.firebaseapp.com",
+            databaseURL: "https://dreamstyle-56d32-default-rtdb.firebaseio.com",
+            projectId: "dreamstyle-56d32",
+            storageBucket: "dreamstyle-56d32.firebasestorage.app",
+            messagingSenderId: "188421473202",
+            appId: "1:188421473202:web:424beeea5a4b6d507b5aab",
+            measurementId: "G-D9REDB493L"
+        };
+    
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+        const auth = getAuth(app);
     
-    const activeModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
-if (activeModal) {
-    activeModal.hide();
-}
-
-
+        // Cerrar el modal activo al abrir uno nuevo
+        const activeModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
+        if (activeModal) {
+            activeModal.hide();
+        }
+    
         document.addEventListener('DOMContentLoaded', () => {
             const userLoginForm = document.getElementById('userLoginForm');
             const registerForm = document.getElementById('registerForm');
-            const checkoutForm = document.getElementById('checkoutPurchaseForm');
             let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
+    
             function saveRegisterData() {
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    if (password !== confirmPassword) {
-        alert('Las contraseñas no coinciden.');
-        return;
-    }
-
-    const newUserRef = ref(database, 'Usuarios/' + Date.now());
-    set(newUserRef, {
-        name,
-        email,
-        password
-    }).then(() => {
-        alert('Registro exitoso. ¡Por favor inicia sesión!');
-        document.getElementById('registerForm').reset();
-
-        // Cerrar el modal de registro si existe y está inicializado
-        const registerModalElement = document.getElementById('registerModal');
-        if (registerModalElement) {
-            const registerModal = bootstrap.Modal.getInstance(registerModalElement);
-            if (registerModal) registerModal.hide();
-        }
-
-        // Abrir el modal de inicio de sesión
-        const loginModalElement = document.getElementById('userLoginModal');
-        if (loginModalElement) {
-            const loginModal = new bootstrap.Modal(loginModalElement);
-            loginModal.show();
-        }
-    }).catch((error) => {
-        console.error('Error al registrar el usuario:', error);
-        alert('Hubo un error al registrar el usuario. Intenta nuevamente.');
-    });
-}
-
-function handleLogin() {
-    const email = document.getElementById('userEmail').value;
-    const password = document.getElementById('userPassword').value;
-
-    const dbRef = ref(database);
-    get(child(dbRef, 'Usuarios'))
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                const users = snapshot.val();
-                const user = Object.values(users).find(user => user.email === email && user.password === password);
-
-                if (user) {
-                    alert(`¡Bienvenido, ${user.name}!`);
-                    window.location.href = 'Index.html'; // Redirigir al inicio
-                } else {
-                    alert('Correo o contraseña incorrectos.');
+                const name = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+    
+                if (password !== confirmPassword) {
+                    alert('Las contraseñas no coinciden.');
+                    return;
                 }
-            } else {
-                alert('No hay usuarios registrados.');
+    
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then(userCredential => {
+                        const newUserRef = ref(database, 'Usuarios/' + Date.now());
+                        set(newUserRef, { name, email })
+                            .then(() => {
+                                alert('Registro exitoso. ¡Por favor inicia sesión!');
+                                registerForm.reset();
+                                const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+                                if (registerModal) registerModal.hide();
+                                const loginModal = new bootstrap.Modal(document.getElementById('userLoginModal'));
+                                loginModal.show();
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el usuario:', error);
+                        alert('Hubo un error al registrar el usuario. Intenta nuevamente.');
+                    });
             }
-        })
-        .catch((error) => {
-            console.error('Error al iniciar sesión:', error);
-            alert('Hubo un error al iniciar sesión. Intenta nuevamente.');
-        });
-}
-
-
-            // Evento para el formulario de registro
+    
+            function handleLogin() {
+                const email = document.getElementById('userEmail').value;
+                const password = document.getElementById('userPassword').value;
+    
+                signInWithEmailAndPassword(auth, email, password)
+                    .then(userCredential => {
+                        alert(`¡Bienvenido, ${userCredential.user.email}!`);
+                        window.location.href = 'Index.html'; // Redirigir al inicio
+                    })
+                    .catch(error => {
+                        console.error('Error al iniciar sesión:', error);
+                        alert('Correo o contraseña incorrectos.');
+                    });
+            }
+    
             registerForm.addEventListener('submit', (event) => {
                 event.preventDefault();
                 saveRegisterData();
             });
-
-            // Evento para el formulario de inicio de sesión
+    
             userLoginForm.addEventListener('submit', (event) => {
                 event.preventDefault();
                 handleLogin();
             });
+    
+            // Verificar estado de autenticación
+            onAuthStateChanged(auth, user => {
+                if (user) {
+                    console.log("Usuario autenticado:", user.email);
+                } else {
+                    console.log("Ningún usuario autenticado");
+                }
+            });
+    
+            // Formulario de opiniones
+            document.getElementById('opinion-form').addEventListener('submit', function (e) {
+                e.preventDefault(); // Evitar recargar la página al enviar el formulario
+    
+                const nombre = document.getElementById('nombre').value;
+                const opinion = document.getElementById('opinion').value;
+    
+                // Referencia a la base de datos en Firebase (tabla "Opiniones")
+                const opinionesRef = ref(database, 'Opiniones');
+    
+                // Guardar los datos en Firebase
+                push(opinionesRef, {
+                    nombre: nombre,
+                    opinion: opinion,
+                    fecha: new Date().toISOString() // Guardar la fecha/hora de la opinión
+                })
+                .then(() => {
+                    const mensaje = document.getElementById('mensaje');
+                    mensaje.className = 'alert alert-success'; // Agregar clase de éxito
+                    mensaje.textContent = '¡Gracias por tu opinión!';
+                    mensaje.classList.remove('d-none'); // Hacer visible el mensaje
+                    document.getElementById('opinion-form').reset();
+                })
+                .catch((error) => {
+                    const mensaje = document.getElementById('mensaje');
+                    mensaje.className = 'alert alert-danger';
+                    mensaje.textContent = 'Hubo un error al enviar tu opinión. Intenta de nuevo.';
+                    mensaje.classList.remove('d-none');
+                    console.error('Error al guardar la opinión:', error);
+                });
+            });
         });
-
     </script>
-
+    
     <div class="modal fade" id="userLoginModal" tabindex="-1" aria-labelledby="userLoginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -330,15 +403,17 @@ function handleLogin() {
                         <div class="modal-body p-4 p-md-5">
                             <h2 class="text-center mb-4">¡Bienvenido de nuevo!</h2>
                             <p class="text-secondary text-center mb-4">Introduce tu correo electrónico y contraseña.</p>
-
                             <form id="userLoginForm">
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" id="userEmail" placeholder="Email"
-                                        required>
+                                    <label for="userEmail" class="form-label">Correo electrónico:</label>
+                                    <input type="email" class="form-control" id="userEmail" placeholder="Correo electrónico" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 position-relative">
                                     <label for="userPassword" class="form-label">Contraseña:</label>
-                                    <input type="password" class="form-control" id="userPassword" required>
+                                    <input type="password" class="form-control" id="userPassword" placeholder="Contraseña" required>
+                                    <span id="togglePassword" style="cursor: pointer; position: absolute; right: 10px; top: 50px;">
+                                        👁️
+                                    </span>
                                 </div>
                                 <div class="mb-3 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
@@ -346,27 +421,19 @@ function handleLogin() {
                                         <label class="form-check-label" for="userRemember">Recuérdame</label>
                                     </div>
                                 </div>
-                               <button type="button" class="btn-primary w-100 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#userLoginModal">Iniciar sesión</button>
-
-                                    <button type="button" class="btn-secondary w-100 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
-
-
+                                <button type="button" class="btn btn-success w-100 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#userLoginModal">Iniciar sesión</button>
+                                <button type="button" class="btn btn-success w-100 py-2 mb-3" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
                                 <div class="text-center mb-3">
                                     <span class="text-secondary">o inicia sesión con</span>
                                 </div>
-
                                 <div class="d-flex justify-content-between gap-2">
-                                    <button type="button"
-                                        class="btn-outline-secondary w-50 d-flex align-items-center justify-content-center gap-2">
-                                        <a href="https://www.google.com.mx/?hl=es" target="_blank"
-                                            class="text-decoration-none">
+                                    <button type="button" class="btn-outline-secondary w-50 d-flex align-items-center justify-content-center gap-2">
+                                        <a href="https://www.google.com.mx/?hl=es" target="_blank" class="text-decoration-none">
                                             <img src="https://www.google.com/favicon.ico" alt="Google">
                                         </a>
                                     </button>
-                                    <button type="button"
-                                        class="btn-outline-secondary w-50 d-flex align-items-center justify-content-center gap-2">
-                                        <a href="https://www.facebook.com/" target="_blank"
-                                            class="text-decoration-none">
+                                    <button type="button" class="btn-outline-secondary w-50 d-flex align-items-center justify-content-center gap-2">
+                                        <a href="https://www.facebook.com/" target="_blank" class="text-decoration-none">
                                             <img src="https://www.facebook.com/favicon.ico" alt="Facebook">
                                         </a>
                                     </button>
@@ -378,43 +445,61 @@ function handleLogin() {
             </div>
         </div>
     </div>
-
-
+    
     <!-- Modal de registro -->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="registerForm">
-                        <div class="mb-3">
-                            <label for="registerName" class="form-label">Nombre Completo:</label>
-                            <input type="text" class="form-control" id="registerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerEmail" class="form-label">Correo Electrónico:</label>
-                            <input type="email" class="form-control" id="registerEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="registerPassword" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="registerPassword" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirmar Contraseña:</label>
-                            <input type="password" class="form-control" id="confirmPassword" required>
-                        </div>
-                        <button type="submit" class="btn-primary">Registrar</button>
-                    </form>
-                </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="registerName" class="form-label">Nombre Completo:</label>
+                  <input type="text" class="form-control" id="registerName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerEmail" class="form-label">Correo Electrónico:</label>
+                  <input type="email" class="form-control" id="registerEmail" required>
+                </div>
+                <div class="mb-3 position-relative">
+                  <label for="registerPassword" class="form-label">Contraseña:</label>
+                  <input type="password" class="form-control" id="registerPassword" required>
+                  <span id="toggleRegisterPassword" style="cursor: pointer; position: absolute; right: 10px; top: 50px;">
+                    👁️
+                  </span>
+                </div>
+                <div class="mb-3 position-relative">
+                  <label for="confirmPassword" class="form-label">Confirmar Contraseña:</label>
+                  <input type="password" class="form-control" id="confirmPassword" required>
+                  <span id="toggleConfirmPassword" style="cursor: pointer; position: absolute; right: 10px; top: 50px;">
+                    👁️
+                  </span>
+                </div>
+                <button type="submit" class="btn btn-success">Registrar</button>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-
-
-
+      </div>
+      
+      <script>
+        document.getElementById('toggleRegisterPassword').addEventListener('click', function() {
+          const passwordInput = document.getElementById('registerPassword');
+          const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          passwordInput.setAttribute('type', type);
+        });
+      
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+          const confirmPasswordInput = document.getElementById('confirmPassword');
+          const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          confirmPasswordInput.setAttribute('type', type);
+        });
+      </script>
+    
+    
     <!-- Modal del carrito -->
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -441,12 +526,8 @@ function handleLogin() {
                         <strong>Total:</strong>
                         <span id="total-amount">$0.00</span>
                     </div>
-                    <div>
-
-                    </div>
                     <div class="modal-footer">
                         <button class="btn btn-success" onclick="showCheckout()">Proceder a la compra</button>
-
                     </div>
                     <div id="checkout-container" style="display:none;">
                         <h2>Formulario de Compra</h2>
@@ -470,26 +551,26 @@ function handleLogin() {
             </div>
         </div>
     </div>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const checkoutForm = document.getElementById('checkoutPurchaseForm');
             let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
+    
             checkoutForm.addEventListener('submit', function (event) {
                 event.preventDefault();
                 saveCheckoutData();
             });
-
+    
             function saveCheckoutData() {
                 const nombreCompleto = document.getElementById('checkoutNombre').value;
                 const email = document.getElementById('checkoutEmail').value;
                 const direccionEnvio = document.getElementById('checkoutDireccion').value;
-
+    
                 const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-                alert('Compra realizada con éxito. ¡Gracias por su compra¡');
-
+    
+                alert('Compra realizada con éxito. ¡Gracias por su compra!');
+    
                 // Limpiar carrito
                 cartItems = [];
                 localStorage.removeItem('cart');
@@ -499,44 +580,44 @@ function handleLogin() {
                 const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
                 cartModal.hide(); // Cerrar el modal
             }
-
+    
             function renderCart() {
                 const cartTbody = document.getElementById('cart-tbody');
                 cartTbody.innerHTML = '';
                 let totalAmount = 0;
                 let totalCount = 0; // Contador de productos
-
+    
                 cartItems.forEach((item, index) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
-                <td>${item.name}</td>
-                <td>$${item.price.toFixed(0)}</td>
-                <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></td>
-                <td>$${(item.price * item.quantity).toFixed(0)}</td>
-                <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Eliminar</button></td>
-            `;
+                        <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(0)}</td>
+                        <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></td>
+                        <td>$${(item.price * item.quantity).toFixed(0)}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Eliminar</button></td>
+                    `;
                     cartTbody.appendChild(row);
                     totalAmount += item.price * item.quantity;
                     totalCount += item.quantity; // Sumar cantidad al contador
                 });
-
+    
                 document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(0)}`;
                 document.getElementById('cart-count').textContent = totalCount; // Actualizar contador de productos
             }
-
+    
             window.updateQuantity = function (index, quantity) {
                 cartItems[index].quantity = parseInt(quantity);
                 localStorage.setItem('cart', JSON.stringify(cartItems));
                 renderCart();
             };
-
+    
             window.removeFromCart = function (index) {
                 cartItems.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cartItems));
                 renderCart();
             };
-
+    
             window.addToCart = function (name, price, image) {
                 const item = { name, price, quantity: 1, image };
                 cartItems.push(item);
@@ -544,7 +625,7 @@ function handleLogin() {
                 renderCart();
                 alert(`${name} ha sido añadido al carrito.`);
             };
-
+    
             window.openCartModal = function () {
                 if (cartItems.length === 0) {
                     alert("El carrito está vacío.");
@@ -554,16 +635,14 @@ function handleLogin() {
                     cartModal.show();
                 }
             };
-
+    
             window.showCheckout = function () {
                 document.getElementById('checkout-container').style.display = 'block'; // Mostrar formulario
             };
-
+    
             renderCart();
         });
     </script>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

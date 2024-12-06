@@ -10,7 +10,40 @@
     <link rel="shortcut icon" href="img/android--chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
 
-    
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        .light-mode .nav-links a {
+            color: rgb(255, 255, 255);
+        }
+        .dark-mode .nav-links a {
+            color: lightblue;
+        }
+        .toggle-button {
+            margin: 30px;
+            padding: 0px;
+            cursor: pointer;
+            background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 24px;
+                
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -24,12 +57,15 @@
                     <div class="logo ms-2">Dream Style</div>
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Index.html">Inicio</a></li>
                     <li><a href="Hombres.html">Hombres</a></li>
                     <li><a href="Mujeres.html">Mujeres</a></li>
                     <li><a href="Niños.html">Niños</a></li>
                     <li><a href="Contacto.html">Contacto</a></li>
                 </ul>
+                <button class="toggle-button" id="toggleButton" title="Cambiar a Modo Oscuro">
+                    🌞
+                </button>
                 <div class="cart-icon">
                     <a href="Carrito.html">
                         <i class="ri-shopping-cart-fill" style="font-size: 1.5rem; cursor: pointer;"></i>
@@ -58,19 +94,19 @@
                 <img src="https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648940/sudadera_vyu35v.jpg" alt="Producto 1">
                 <h3>TOP SUETER 🔥</h3>
                 <p>$19.99 USD</p>
-                <button onclick="addToCart('TOP SUETER', 19.99, 'images/fashion-1283863_1920.jpg')">Comprar ahora</button>
+                <button onclick="addToCart('TOP SUETER', 19.99, 'https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648940/sudadera_vyu35v.jpg')">Comprar ahora</button>
             </div>
             <div class="product-item">
                 <img src="https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648935/ai-image_zefuio.jpg" alt="Producto 2">
                 <h3>TOP CAMISA 🔥</h3>
                 <p>$39.99 USD</p>
-                <button onclick="addToCart('TOP CAMISA', 39.99, 'images/ai-image.jpg')">Comprar ahora</button>
+                <button onclick="addToCart('TOP CAMISA', 39.99, 'https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648935/ai-image_zefuio.jpg')">Comprar ahora</button>
             </div>
             <div class="product-item">
                 <img src="https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648937/mujer_sudadera_uurvt8.jpg" alt="Producto 3">
                 <h3>TOP WOMAN 🔥</h3>
                 <p>$89.99 USD</p>
-                <button onclick="addToCart('TOP WOMAN', 89.99, 'images/istockphoto-899695730-1024x1024.jpg')">Comprar ahora</button>
+                <button onclick="addToCart('TOP WOMAN', 89.99, 'https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648937/mujer_sudadera_uurvt8.jpg')">Comprar ahora</button>
             </div>
         </div>
     </section>
@@ -130,13 +166,15 @@
 
     <!-- Pie de página -->
     <footer>
-        <p> 2024 Dream Style. Todos los derechos reservados.</p>
+        <p>2024 Dream Style. Todos los derechos reservados.<a href="Terminos y condiciones.html" class="terminos-link">Términos y Condiciones</a></p>
         <div class="redes">
             <a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-fill"></i></a>
             <a href="https://www.whatsapp.com/" target="_blank"><i class="ri-whatsapp-line"></i></a>
         </div>
     </footer>
+
+
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -298,5 +336,6 @@ setInterval(removeExpiredItems, 60 * 1000);
           renderCart();
       });
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

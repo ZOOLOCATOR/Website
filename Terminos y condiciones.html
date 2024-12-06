@@ -4,70 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones</title>
-    
     <style>
+        /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
             margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 80%;
+            max-width: 800px;
+            text-align: justify;
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
-        h1, h2, h3 {
-            color: #333;
-        }
+
+        /* Estilo del encabezado principal */
         h1 {
+            font-size: 28px;
+            text-align: center;
             margin-bottom: 20px;
+            color: #00bfff;
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
         }
+
+        /* Estilo para subtítulos */
+        h2 {
+            font-size: 20px;
+            color: #00bfff;
+            margin-top: 30px;
+            border-left: 4px solid #00bfff;
+            padding-left: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        h2:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* Estilo para párrafos */
         p {
+            font-size: 16px;
             margin: 10px 0;
         }
-        ul {
-            margin: 10px 0 10px 20px;
-        }
+
+        /* Estilo para el pie de página */
         footer {
             margin-top: 40px;
             text-align: center;
-            font-size: 0.8em;
-            color: #777;
+            font-size: 14px;
+            color: #aaa;
+            border-top: 1px solid #555;
+            padding-top: 10px;
+        }
+
+        /* Efectos adicionales */
+        a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <h1>Términos y Condiciones de DreamStyle</h1>
-    
-    <h2>1. Aceptación de Términos</h2>
-    <p>Al utilizar nuestro sitio web y realizar compras, acepta los siguientes términos y condiciones.</p>
-    
-    <h2>2. Productos</h2>
-    <p>Los productos ofrecidos en DreamStyle están sujetos a disponibilidad. Nos reservamos el derecho de modificar o descontinuar productos sin previo aviso.</p>
-    
-    <h2>3. Precios</h2>
-    <p>Todos los precios están en moneda local e incluyen impuestos aplicables. Nos reservamos el derecho de cambiar los precios en cualquier momento.</p>
-    
-    <h2>4. Métodos de Pago</h2>
-    <p>Aceptamos varias formas de pago, incluyendo tarjetas de crédito y otros métodos electrónicos. La información de pago se maneja de forma segura.</p>
-    
-    <h2>5. Envíos y Entregas</h2>
-    <p>Los pedidos se enviarán a la dirección proporcionada durante el proceso de compra. Los plazos de entrega pueden variar según la ubicación.</p>
-    
-    <h2>6. Devoluciones y Cambios</h2>
-    <p>Si no está satisfecho con su compra, puede devolver o cambiar los productos dentro de un plazo de 30 días desde la recepción.</p>
-    
-    <h2>7. Propiedad Intelectual</h2>
-    <p>Todo el contenido de este sitio, incluyendo textos, imágenes y logotipos, es propiedad de DreamStyle y está protegido por leyes de propiedad intelectual.</p>
-    
-    <h2>8. Modificaciones</h2>
-    <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones serán efectivas una vez publicadas en el sitio.</p>
-    
-    <h2>9. Contacto</h2>
-    <p>Para consultas sobre estos términos y condiciones, puede contactarnos a través de nuestro formulario de contacto en el sitio web.</p>
-    
-    
+    <div class="container">
+        <h1>Términos y Condiciones de DreamStyle</h1>
+        
+        <h2>Aceptación de Términos</h2>
+        <p>Al utilizar este sitio web o realizar compras en nuestra plataforma e-commerce, usted acepta los presentes Términos y Condiciones (T&C). Si no está de acuerdo con alguno de los términos, no debe utilizar el sitio.</p>
+        
+        <h2>Descripción de Servicios</h2>
+        <p>DreamStyle es una plataforma de comercio electrónico B2C que ofrece bordados artesanales únicos, acceso a contenido relacionado y soporte al cliente. Los productos ofrecidos están sujetos a disponibilidad y pueden modificarse o descontinuarse sin previo aviso.</p>
+        
+        <h2>Datos Personales y Privacidad</h2>
+        <p>DreamStyle recopila y protege los datos personales proporcionados por los usuarios conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+        <p><strong>Derechos ARCO:</strong> Puede acceder, rectificar, cancelar u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos, envíe un correo a <a href="mailto:DreamStyle@gmail.com">DreamStyle@gmail.com</a>.</p>
+        <p><strong>Seguridad:</strong> Implementamos medidas como cifrado y autenticación para garantizar la confidencialidad e integridad de su información.</p>
+        
+        <h2>Métodos de Pago</h2>
+        <p>Aceptamos pagos mediante tarjetas de crédito, débito y métodos electrónicos. Toda la información de pago se maneja con estándares de seguridad para proteger sus datos.</p>
+        
+        <h2>Envíos y Entregas</h2>
+        <p>Los productos serán enviados a la dirección indicada durante el proceso de compra. Los plazos de entrega pueden variar según la ubicación. DreamStyle no se responsabiliza por retrasos ocasionados por terceros.</p>
+        
+        <h2>Devoluciones y Cambios</h2>
+        <p>Puede devolver o cambiar productos dentro de los 30 días posteriores a la recepción, siempre que se encuentren en las mismas condiciones en que fueron entregados. Los costos de devolución pueden aplicarse según el caso.</p>
+        
+        <h2>Responsabilidades del Usuario</h2>
+        <p>El usuario se compromete a proporcionar información veraz y actualizada, mantener la confidencialidad de su contraseña y no utilizar el sitio para fines ilegales o que afecten a otros usuarios o a DreamStyle.</p>
+        
+        <h2>Limitaciones de Responsabilidad</h2>
+        <p>DreamStyle no será responsable de daños indirectos, incidentales o consecuentes derivados del uso del sitio, pérdida de datos por errores técnicos, o información inexacta proporcionada por usuarios o terceros.</p>
+        
+        <h2>Propiedad Intelectual</h2>
+        <p>Todo el contenido del sitio (textos, imágenes, logotipos, diseños, etc.) es propiedad de DreamStyle y está protegido por las leyes de propiedad intelectual aplicables.</p>
+        
+        <h2>Seguridad del Sitio</h2>
+        <p>DreamStyle utiliza medidas de seguridad como inicio de sesión con correo y contraseña, opciones de autenticación mediante redes sociales o códigos móviles. El uso indebido del sistema o la falsificación de información puede conllevar responsabilidades legales.</p>
+        
+        <h2>Modificaciones a los T&C</h2>
+        <p>DreamStyle puede modificar estos Términos y Condiciones en cualquier momento. Los cambios serán efectivos tras su publicación en el sitio. Al continuar usando el sitio, el usuario acepta dichas modificaciones.</p>
+        
+        <h2>Contacto</h2>
+        <p>Si tiene preguntas o inquietudes sobre estos Términos y Condiciones, puede contactarnos a través del correo <a href="mailto:DreamStyle@gmail.com">DreamStyle@gmail.com</a> o mediante el formulario disponible en nuestro sitio.</p>
+        
         <footer>
-            <p>2024 Dream Style. Todos los derechos reservados.</p>
-    </footer>
+            <p>© 2024 DreamStyle. Todos los derechos reservados.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
+

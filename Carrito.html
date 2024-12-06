@@ -414,7 +414,7 @@ document.getElementById('generateTicketBtn').addEventListener('click', descargar
                 const now = Date.now(); // Obtener el tiempo actual en milisegundos
 
                 // Filtrar los productos cuyo tiempo en el carrito sea menor o igual a 20 minutos
-                const updatedCart = cartItems.filter(item => now - item.addedAt <= 5 * 60 * 1000);
+                const updatedCart = cartItems.filter(item => now - item.addedAt <= 20 * 60 * 1000);
 
                 // Si la cantidad de productos cambia, actualizar el localStorage y el carrito
                 if (updatedCart.length !== cartItems.length) {

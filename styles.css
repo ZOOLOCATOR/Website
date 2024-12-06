@@ -41,7 +41,7 @@ text-decoration : none;
 font-size : 16px;
 }
 .header {
-background-image : url("images/fondo.png");
+background-image : url("https://res.cloudinary.com/dkqrigb7h/image/upload/v1732648937/diseno-moderno_mcfax5.jpg");
 background-size : cover;
 color : rgb(0, 0, 0, 0.76);
 text-align : center;
@@ -416,14 +416,14 @@ margin-top : 1.5rem;
 width : 100%;
 padding : 0.5rem;
 border-radius : 0.5rem;
-background-color : #60c5f3;
+background-color : #000000;
 color : rgb(0, 24, 238);
 border : none;
 font-weight : 500;
 transition : background-color 0.2s ease;
 }
 .btn-login:hover, .btn-register:hover {
-background-color : #60c5f3;
+background-color : #000000;
 color : white;
 }
 .divider {
@@ -465,13 +465,13 @@ background-color : #f8f9fa;
 margin-bottom : 1.5rem;
 }
 #registerModal .modal-content {
-background-color : rgb(255, 255, 255);
+background-color :60c5f3(0, 0, 0);
 }
 #registerModal .modal-header {
 border-bottom : none;
 }
 #registerModal .modal-title {
-color : #60c5f3;
+color : #000000;
 }
 #registerModal .btn-close {
 color : #60c5f3;
@@ -608,7 +608,7 @@ padding : 20px;
 }
 .btn-success {
 background-color : white;
-color : #60c5f3;
+color : #000000;
 }
 .modal-body table {
 width : 100%;
@@ -967,4 +967,113 @@ display : none;
 }
 
 
+}
+
+
+
+.table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    border: 1px solid #dee2e6;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.table thead {
+    background-color: #ffffff; /* Azul para encabezados */
+    color: rgb(0, 0, 0); /* Texto blanco */
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Color gris claro para filas pares */
+}
+
+.table tbody  {
+    background-color: #ffffff; /* Color gris claro al pasar el mouse */
+}
+
+.table tfoot {
+    background-color: #ffffff;
+}
+
+#total-amount {
+    color: #000000; /* Verde para el total */
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #28a745; /* Verde para el botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+@media (max-width: 600px) {
+    .table {
+        font-size: 0.7rem; /* Fuente más pequeña en móviles */
+    }
+
+    .btn {
+        width: 100%; /* Botón a ancho completo en móviles */
+    }
+}
+
+.redes a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.redes a[href*="facebook.com"] {
+    background-color: #3b5998; /* Color de Facebook */
+}
+
+.redes a[href*="instagram.com"] {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4); /* Color de Instagram */
+}
+
+.redes a[href*="whatsapp.com"] {
+    background-color: #25D366; /* Color de WhatsApp */
+}
+
+
+.terminos-link {
+    color: #ffffff; /* Cambia este valor al color deseado */
+     /* Para quitar el subrayado, si lo deseas */
+}
+
+.terminos-link:hover {
+    color: #000000; /* Cambia el color al pasar el mouse, si lo deseas */
+}
+#payment-modal .modal-content {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+#payment-modal .modal-header {
+    border-bottom: none;
+}
+#payment-modal .modal-title {
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -325,7 +325,6 @@ function descargarTicket() {
     const doc = new jsPDF();
 
     // Datos del formulario
-    const codigoTransaccion = "TX123456789"; 
     const nombre = document.getElementById('checkoutNombre').value || "Cliente";
     const email = document.getElementById('checkoutEmail').value || "Email no proporcionado";
     const fecha = new Date().toLocaleDateString();
